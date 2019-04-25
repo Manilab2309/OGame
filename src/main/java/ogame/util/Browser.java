@@ -2,7 +2,6 @@ package ogame.util;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.CommandExecutor;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -13,21 +12,20 @@ public class Browser {
 	
 	public static WebDriver launch() {
 
-		//System.setProperty("webdriver.chrome.driver","D:/Manizone/bin/chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver","./bin/chromedriver.exe");
 
-		WebDriver driver = null;
+		/*WebDriver driver = null;
 		try {
 			driver = getChromeDriver();
 		} catch (Exception e) {
 			e.printStackTrace();
-		}
-		driver.get("http://www.google.com");
+		}*/
 
 		return new ChromeDriver();
 
 	}
 
-	public static WebDriver getChromeDriver()
+	public WebDriver getChromeDriver()
 			throws Exception
 	{
 		String baseDir = new File(".").getPath();
@@ -38,7 +36,7 @@ public class Browser {
 		System.setProperty("webdriver.chrome.driver", path);
 
 		DesiredCapabilities capabilities =  DesiredCapabilities.chrome();
-		capabilities.setCapability("marionette", true);
+		//capabilities.setCapability("marionette", true);
 		capabilities.setCapability("networkConnectionEnabled", true);
 		capabilities.setCapability("browserConnectionEnabled", true);
 

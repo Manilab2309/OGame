@@ -1,7 +1,5 @@
 package ogame.util;
 
-import org.openqa.selenium.WebDriver;
-
 public class Constants {
 
     public static class Credentials {
@@ -18,6 +16,9 @@ public class Constants {
 
         /** User mail for login */
         public static final String OGAME_DEBUG_PREFIX = "[OGame] - ";
+
+        /** User mail for login */
+        public static final String OGAME_DEBUG_MAIL = "[OGame] - ";
 
         /** Logo */
         public static final String OGAME_LOGO = " \"\"\"\n" +

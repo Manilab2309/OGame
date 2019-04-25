@@ -10,7 +10,7 @@ import org.openqa.selenium.WebDriver;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
-public class LoginImpl implements LoginI {
+public class LoginImpl implements LoginService {
 
     /** Browser */
     WebDriver driver = Browser.launch();

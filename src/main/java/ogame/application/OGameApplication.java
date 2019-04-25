@@ -1,12 +1,15 @@
 package ogame.application;
 
+import ogame.services.ActionsImpl;
 import ogame.services.LoginImpl;
-import ogame.util.Constants;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 public class OGameApplication {
 
     /** Logger */
-   // private static final Logger logger = LoggerFactory.getLogger(OGameApplication.class);
+    private static final Logger logger = LoggerFactory.getLogger(OGameApplication.class);
 
     public static void main(String[] args) {
 
@@ -14,8 +17,11 @@ public class OGameApplication {
        // logger.info(Constants.Messages.OGAME_LOGO);
 
         /** Login OGame Page */
-        LoginImpl login = new LoginImpl();
-        login.logInOGame();
+        //LoginImpl login = new LoginImpl();
+        //login.logInOGame();
+
+        ActionsImpl actions = new ActionsImpl();
+        actions.sendMailMessage();
 
 
 
