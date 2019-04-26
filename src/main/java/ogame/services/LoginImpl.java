@@ -6,17 +6,22 @@ import ogame.webpages.AccountPage;
 import ogame.webpages.LoginPage;
 import ogame.webpages.HubLoginPage;
 import org.openqa.selenium.WebDriver;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class LoginImpl implements LoginService {
 
-    /** Browser */
-    WebDriver driver = Browser.launch();
+    WebDriver driver;
 
     /** Logger */
-   // private static final Logger logger = LoggerFactory.getLogger(LoginImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(LoginImpl.class);
+
+    public LoginImpl(WebDriver driver) {
+        this.driver = driver;
+    }
 
     public void logInOGame() {
 
