@@ -1,5 +1,6 @@
 package ogame.webpages;
 
+import ogame.util.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,12 +15,12 @@ public class HubLoginPage {
 
     public HubLoginPage(WebDriver driver) {
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, 10);
+        this.wait = new WebDriverWait(driver, Constants.SeleniumConfig.OGAME_SLEEP_TIME);
     }
 
     public WebElement getJugarBtn() {
 
-        WebElement jugarBtn = driver.findElement(By.cssSelector("button"));
+        WebElement jugarBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button")));
         return jugarBtn;
     }
 

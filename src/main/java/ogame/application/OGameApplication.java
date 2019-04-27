@@ -37,9 +37,7 @@ public class OGameApplication {
             logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "SISTEMAS SIN AMENAZAS");
         }
 
-        //actions.sendMailMessage();
-
-
+        driver.quit();
 
     }
 }
