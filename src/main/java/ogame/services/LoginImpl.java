@@ -27,6 +27,7 @@ public class LoginImpl implements LoginService {
 
         LoginPage loginPage = new LoginPage(driver);
 
+        logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Accediendo a OGame...");
         driver.get("https://es.ogame.gameforge.com/");
 
         loginPage.getCookiePolicyBtn().click();
@@ -34,16 +35,20 @@ public class LoginImpl implements LoginService {
         loginPage.getTxtEmail().sendKeys(Constants.Credentials.OGAME_USERMAIL);
         loginPage.getTxtPass().sendKeys(Constants.Credentials.OGAME_USERPASS);
         loginPage.getEntrarBtn().click();
+        logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Credenciales validadas...");
 
         driver.manage().timeouts().setScriptTimeout(5,SECONDS);
 
         HubLoginPage hubLoginPage = new HubLoginPage(driver);
         hubLoginPage.getCookiePolicyBtn().click();
         hubLoginPage.getJugarBtn().click();
+        logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Accediendo a cuentas...");
 
         AccountPage accountPage = new AccountPage(driver);
         accountPage.getCookiePolicyBtn().click();
         accountPage.getJugarBtn().click();
+
+        logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Accediendo a Lobby...");
 
     }
 

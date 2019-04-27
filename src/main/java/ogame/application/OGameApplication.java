@@ -1,8 +1,10 @@
 package ogame.application;
 
+import ogame.exceptions.OGameNoSuchWebElementException;
 import ogame.services.ActionsImpl;
 import ogame.services.LoginImpl;
 import ogame.util.Browser;
+import ogame.util.Constants;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -25,10 +27,15 @@ public class OGameApplication {
         LoginImpl login = new LoginImpl(driver);
         login.logInOGame();
 
-
+        logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Lobby cargado");
 
         ActionsImpl actions = new ActionsImpl(driver);
-        actions.checkStatus();
+        try{
+            logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Comprobando amenaza...");
+            actions.checkStatus();
+        } catch(OGameNoSuchWebElementException exc){
+            logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "SISTEMAS SIN AMENAZAS");
+        }
 
         //actions.sendMailMessage();
 

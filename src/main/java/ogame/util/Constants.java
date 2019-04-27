@@ -36,7 +36,7 @@ public class Constants {
     public static class SeleniumConfig {
 
         /** Lapsed timing portal */
-        public static final long OGAME_SLEEP_TIME = 2;
+        public static final long OGAME_SLEEP_TIME = 2000;
 
     }
 

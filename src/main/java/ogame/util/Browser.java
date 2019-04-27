@@ -2,6 +2,7 @@ package ogame.util;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 
@@ -21,7 +22,10 @@ public class Browser {
 			e.printStackTrace();
 		}*/
 
-		return new ChromeDriver();
+		ChromeOptions options = new ChromeOptions();
+		options.addArguments("headless");
+
+		return new ChromeDriver(options);
 
 	}
 
