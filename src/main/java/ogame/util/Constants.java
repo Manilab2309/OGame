@@ -17,19 +17,15 @@ public class Constants {
         /** User mail for login */
         public static final String OGAME_DEBUG_PREFIX = "[OGame] - ";
 
-        /** User mail for login */
-        public static final String OGAME_DEBUG_MAIL = "[OGame] - ";
-
         /** Logo */
-        public static final String OGAME_LOGO = " \"\"\"\n" +
-                "        _____ _____\n" +
+        public static final String OGAME_LOGO = "\n" +
+                "         _____ _____\n" +
                 "        |  _  |  __ \\\n" +
                 "        | | | | |  \\/ __ _ _ __ ___   ___\n" +
                 "        | | | | | __ / _` | '_ ` _ \\ / _ \\\n" +
                 "        \\ \\_/ / |_\\ \\ (_| | | | | | |  __/\n" +
                 "         \\___/ \\____/\\__,_|_| |_| |_|\\___|\n" +
-                "\n" +
-                "                \"\"\"";
+                "\n";
 
     }
 

@@ -15,7 +15,7 @@ import java.util.Properties;
 public class ActionsImpl implements ActionsService {
 
     /** Driver */
-    WebDriver driver;
+    private WebDriver driver;
 
     /** Logger */
     private static final Logger logger = LoggerFactory.getLogger(ActionsImpl.class);

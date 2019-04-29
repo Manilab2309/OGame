@@ -20,8 +20,7 @@ public class OGameApplication {
 
     public static void main(String[] args) {
 
-       // logger.info("OGAME!!!");
-       // logger.info(Constants.Messages.OGAME_LOGO);
+        logger.info(Constants.Messages.OGAME_LOGO);
 
         /** Login OGame Page */
         LoginImpl login = new LoginImpl(driver);

@@ -1,7 +1,6 @@
 package ogame.services;
 
 import ogame.exceptions.OGameNoSuchWebElementException;
-import org.openqa.selenium.WebDriver;
 
 public interface ActionsService {
 

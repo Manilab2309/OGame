@@ -1,16 +1,15 @@
 package ogame.webpages;
 
 import ogame.exceptions.OGameNoSuchWebElementException;
-import ogame.util.Constants;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
+
 
 public class LobbyPage {
 
-    WebDriver driver;
+    private WebDriver driver;
 
 
     public LobbyPage(WebDriver driver) {

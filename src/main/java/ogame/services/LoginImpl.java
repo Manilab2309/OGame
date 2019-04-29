@@ -14,7 +14,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 
 public class LoginImpl implements LoginService {
 
-    WebDriver driver;
+    private WebDriver driver;
 
     /** Logger */
     private static final Logger logger = LoggerFactory.getLogger(LoginImpl.class);
