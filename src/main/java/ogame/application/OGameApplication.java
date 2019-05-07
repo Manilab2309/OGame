@@ -26,6 +26,9 @@ public class OGameApplication {
         LoginImpl login = new LoginImpl(driver);
         login.logInOGame();
 
+        //debug and local testing
+        //driver.get("D:/attack.html");
+
         logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Lobby cargado");
 
         ActionsImpl actions = new ActionsImpl(driver);
