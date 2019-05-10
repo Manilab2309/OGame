@@ -1,14 +1,12 @@
 package ogame.services;
 
-import ogame.util.Browser;
 import ogame.util.Constants;
 import ogame.webpages.AccountPage;
-import ogame.webpages.LoginPage;
 import ogame.webpages.HubLoginPage;
+import ogame.webpages.LoginPage;
 import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 

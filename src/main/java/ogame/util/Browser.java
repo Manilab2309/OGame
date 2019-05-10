@@ -1,56 +1,25 @@
 package ogame.util;
 
+import ogame.application.OGameApplication;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-import org.openqa.selenium.remote.DesiredCapabilities;
-import org.openqa.selenium.remote.RemoteWebDriver;
-
-import java.io.File;
-import java.net.URL;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Browser {
-	
+
+	/** Logger */
+	private static final Logger logger = LoggerFactory.getLogger(OGameApplication.class);
+
 	public static WebDriver launch() {
 
-		System.setProperty("webdriver.chrome.driver","./bin/chromedriver.exe");
-
-		/*WebDriver driver = null;
-		try {
-			driver = getChromeDriver();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}*/
+		System.setProperty("webdriver.chrome.driver","./drivers/chromedriver.exe");
 
 		ChromeOptions options = new ChromeOptions();
 		options.addArguments("headless");
 
 		return new ChromeDriver(options);
 
-	}
-
-	public WebDriver getChromeDriver()
-			throws Exception
-	{
-		String baseDir = new File(".").getPath();
-		System.out.println("******** " + baseDir);
-
-		String path = "src/test/resources";
-		System.out.println("******** " + path);
-		System.setProperty("webdriver.chrome.driver", path);
-
-		DesiredCapabilities capabilities =  DesiredCapabilities.chrome();
-		//capabilities.setCapability("marionette", true);
-		capabilities.setCapability("networkConnectionEnabled", true);
-		capabilities.setCapability("browserConnectionEnabled", true);
-
-
-		WebDriver driver = new RemoteWebDriver(
-				new URL("http://localhost:4444"),
-				capabilities);
-
-//		WebDriver driver = new MarionetteDriver(capabilities);
-
-		return driver;
 	}
 }

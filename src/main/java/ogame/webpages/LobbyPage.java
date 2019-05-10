@@ -1,7 +1,6 @@
 package ogame.webpages;
 
 import ogame.exceptions.OGameNoSuchWebElementException;
-
 import ogame.util.Constants;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
