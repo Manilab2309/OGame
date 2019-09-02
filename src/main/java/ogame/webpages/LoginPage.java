@@ -7,6 +7,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.util.List;
+
 public class LoginPage {
 
     private WebDriver driver;
@@ -24,22 +26,25 @@ public class LoginPage {
     }
 
     public WebElement getTabEntrar() {
-        WebElement tabEntrar = wait.until(ExpectedConditions.elementToBeClickable(By.id("ui-id-1")));
+
+        List<WebElement> tabList=driver.findElements(By.id("loginRegisterTabs"));
+        WebElement tabEntrar = tabList.get(0).findElement(By.tagName("span"));
+
         return tabEntrar;
     }
 
     public WebElement getTxtEmail() {
-        WebElement txtEmail = wait.until(ExpectedConditions.elementToBeClickable(By.id("usernameLogin")));
+        WebElement txtEmail = wait.until(ExpectedConditions.elementToBeClickable(By.name("email")));
         return txtEmail;
     }
 
     public WebElement getTxtPass() {
-        WebElement txtPass = wait.until(ExpectedConditions.elementToBeClickable(By.id("passwordLogin")));
+        WebElement txtPass = wait.until(ExpectedConditions.elementToBeClickable(By.name("password")));
         return txtPass;
     }
 
     public WebElement getEntrarBtn() {
-        WebElement entrarBtn = wait.until(ExpectedConditions.elementToBeClickable(By.id("loginSubmit")));
+        WebElement entrarBtn = wait.until(ExpectedConditions.elementToBeClickable(By.tagName("button")));
         return entrarBtn;
     }
 }

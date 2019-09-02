@@ -28,7 +28,6 @@ public class LoginImpl implements LoginService {
         logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Accediendo a OGame...");
         driver.get("https://es.ogame.gameforge.com/");
 
-        loginPage.getCookiePolicyBtn().click();
         loginPage.getTabEntrar().click();
         loginPage.getTxtEmail().sendKeys(Constants.Credentials.OGAME_USERMAIL);
         loginPage.getTxtPass().sendKeys(Constants.Credentials.OGAME_USERPASS);
