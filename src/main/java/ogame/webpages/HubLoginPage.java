@@ -20,7 +20,7 @@ public class HubLoginPage {
 
     public WebElement getJugarBtn() {
 
-        WebElement jugarBtn = wait.until(ExpectedConditions.elementToBeClickable(By.cssSelector("button")));
+        WebElement jugarBtn = wait.until(ExpectedConditions.elementToBeClickable(By.tagName("button")));
         return jugarBtn;
     }
 

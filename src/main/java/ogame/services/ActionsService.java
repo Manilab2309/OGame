@@ -1,6 +1,9 @@
 package ogame.services;
 
+import ogame.entity.Event;
 import ogame.exceptions.OGameNoSuchWebElementException;
+
+import java.util.List;
 
 public interface ActionsService {
 
@@ -11,6 +14,6 @@ public interface ActionsService {
     void fleetEvacuation();
 
     /** Send an email notification */
-    void sendMailMessage();
+    void sendMailMessage(List<Event> invasionListDetails);
 
 }

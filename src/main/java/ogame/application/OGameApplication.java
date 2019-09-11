@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import static java.util.concurrent.TimeUnit.SECONDS;
+
 
 public class OGameApplication {
 
@@ -27,12 +29,17 @@ public class OGameApplication {
             LoginImpl login = new LoginImpl(driver);
             login.logInOGame();
 
-            //debug and local testing
-            //driver.get("D:/attack.html");
+            driver.manage().timeouts().setScriptTimeout(5,SECONDS);
 
             logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Lobby cargado");
+            driver.navigate().to("https://s160-es.ogame.gameforge.com/game/index.php?page=overview&relogin=1");
+
+            driver.manage().timeouts().setScriptTimeout(5,SECONDS);
 
             ActionsImpl actions = new ActionsImpl(driver);
+
+            // actions.test();
+
             try {
                 logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Comprobando amenaza...");
                 actions.checkStatus();

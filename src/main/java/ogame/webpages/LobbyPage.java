@@ -35,6 +35,19 @@ public class LobbyPage {
         return attackTooltip;
     }
 
+    public WebElement getDescollapseButton() {
+
+        WebElement descollapseButton = null;
+
+        try {
+            descollapseButton = wait.until(ExpectedConditions.elementToBeClickable(By.id("js_eventDetailsClosed")));
+        }
+        catch(Exception exc){
+            throw new OGameNoSuchWebElementException(exc.getMessage());
+        }
+        return descollapseButton;
+    }
+
 
 
 }

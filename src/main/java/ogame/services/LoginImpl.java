@@ -5,8 +5,12 @@ import ogame.webpages.AccountPage;
 import ogame.webpages.HubLoginPage;
 import ogame.webpages.LoginPage;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import java.util.concurrent.TimeUnit;
 
 import static java.util.concurrent.TimeUnit.SECONDS;
 
@@ -37,12 +41,10 @@ public class LoginImpl implements LoginService {
         driver.manage().timeouts().setScriptTimeout(5,SECONDS);
 
         HubLoginPage hubLoginPage = new HubLoginPage(driver);
-        hubLoginPage.getCookiePolicyBtn().click();
         hubLoginPage.getJugarBtn().click();
         logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Accediendo a cuentas...");
 
         AccountPage accountPage = new AccountPage(driver);
-        accountPage.getCookiePolicyBtn().click();
         accountPage.getJugarBtn().click();
 
         logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Accediendo a Lobby...");
