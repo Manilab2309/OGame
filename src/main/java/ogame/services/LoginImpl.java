@@ -36,14 +36,18 @@ public class LoginImpl implements LoginService {
         loginPage.getTxtEmail().sendKeys(Constants.Credentials.OGAME_USERMAIL);
         loginPage.getTxtPass().sendKeys(Constants.Credentials.OGAME_USERPASS);
         loginPage.getEntrarBtn().click();
+
         logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Credenciales validadas...");
 
-        driver.manage().timeouts().setScriptTimeout(5,SECONDS);
+        driver.manage().timeouts().setScriptTimeout(15,SECONDS);
 
         HubLoginPage hubLoginPage = new HubLoginPage(driver);
         hubLoginPage.getJugarBtn().click();
         logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Accediendo a cuentas...");
 
+        //driver.get("https://lobby.ogame.gameforge.com/es_ES/accounts");
+
+        driver.manage().timeouts().setScriptTimeout(5,SECONDS);
         AccountPage accountPage = new AccountPage(driver);
         accountPage.getJugarBtn().click();
 

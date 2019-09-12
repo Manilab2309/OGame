@@ -12,7 +12,6 @@ import org.slf4j.LoggerFactory;
 import javax.mail.Authenticator;
 import javax.mail.PasswordAuthentication;
 import javax.mail.Session;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 

@@ -15,7 +15,7 @@ import static java.util.concurrent.TimeUnit.SECONDS;
 public class OGameApplication {
 
     /** Browser */
-    private static WebDriver driver = Browser.launch();
+    private static WebDriver driver = Browser.launchFirefox();
 
     /** Logger */
     private static final Logger logger = LoggerFactory.getLogger(OGameApplication.class);
@@ -29,16 +29,16 @@ public class OGameApplication {
             LoginImpl login = new LoginImpl(driver);
             login.logInOGame();
 
-            driver.manage().timeouts().setScriptTimeout(5,SECONDS);
+            driver.manage().timeouts().setScriptTimeout(10,SECONDS);
 
             logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Lobby cargado");
-            driver.navigate().to("https://s160-es.ogame.gameforge.com/game/index.php?page=overview&relogin=1");
+            driver.navigate().to("https://s160-es.ogame.gameforge.com/game/index.php?page=overview");
 
             driver.manage().timeouts().setScriptTimeout(5,SECONDS);
 
             ActionsImpl actions = new ActionsImpl(driver);
 
-            // actions.test();
+            // actions.test(); for testing new activity
 
             try {
                 logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Comprobando amenaza...");
@@ -50,7 +50,8 @@ public class OGameApplication {
             driver.quit();
 
         }catch (Exception e){
-            logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Se ha producido un error, se cierra el Driver de Chrome");
+            logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Se ha producido un error, se cierra el Driver");
+            e.printStackTrace();
             driver.quit();
         }
 
