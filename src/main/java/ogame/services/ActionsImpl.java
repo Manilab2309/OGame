@@ -1,6 +1,7 @@
 package ogame.services;
 
 import ogame.entity.Event;
+import ogame.exceptions.OGameNoSuchWebElementException;
 import ogame.util.Constants;
 import ogame.util.EmailUtil;
 import ogame.webpages.EventListPage;
@@ -54,23 +55,26 @@ public class ActionsImpl implements ActionsService {
 
         LobbyPage lobbyPage = new LobbyPage(driver);
 
-        if (lobbyPage.getAttackTooltip()!= null){
-            driver.navigate().to("https://s160-es.ogame.gameforge.com/game/index.php?page=eventList");
-            //logger.info(driver.getPageSource());
-            driver.manage().timeouts().setScriptTimeout(5,SECONDS);
+        try {
+            if (lobbyPage.getAttackTooltip() != null) {
+                driver.navigate().to("https://s160-es.ogame.gameforge.com/game/index.php?page=eventList");
+                //logger.info(driver.getPageSource());
+                driver.manage().timeouts().setScriptTimeout(5, SECONDS);
 
-            EventListPage eventListPage = new EventListPage(driver);
-            List<Event> invasionListDetails = eventListPage.getArrivalAttackTime();
+                EventListPage eventListPage = new EventListPage(driver);
+                List<Event> invasionListDetails = eventListPage.getArrivalAttackTime();
 
-            logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Eventos hostiles analizados");
+                logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Eventos hostiles analizados");
 
-            logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Notificando mail...");
-            sendMailMessage(invasionListDetails);
-            logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Mail enviado");
-        } else{
-            logger.info("Sistema despejado");
+                logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Notificando mail...");
+                sendMailMessage(invasionListDetails);
+                logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Mail enviado");
+            } else {
+                logger.info("Sistema despejado");
+            }
+        } catch (OGameNoSuchWebElementException exc) {
+            logger.info(Constants.Messages.OGAME_DEBUG_PREFIX  + "Sistema despejado");
         }
-
     }
 
     public void viewFleets() {

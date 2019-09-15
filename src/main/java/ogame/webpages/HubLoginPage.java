@@ -31,14 +31,8 @@ public class HubLoginPage {
 
     public WebElement getJugarBtn() {
 
-        ArrayList<String> tabs2 = new ArrayList<String> (driver.getWindowHandles());
-
-        WebElement btn = driver.findElement(By.className("button"));
-        WebElement jugarBtn = wait.until(ExpectedConditions.visibilityOf(btn));
-        logger.info("BOTONCITO DEL HUB:" + jugarBtn.getText());
-        WebElement jugarBtn2 = wait.until(ExpectedConditions.elementToBeClickable(By.className("button")));
-        logger.info("BOTONCITO DEL HUB:" + jugarBtn.getText());
-        return jugarBtn2;
+        WebElement jugarBtn = wait.until(ExpectedConditions.elementToBeClickable(By.className("button")));
+        return jugarBtn;
     }
 
     public WebElement getCookiePolicyBtn() {

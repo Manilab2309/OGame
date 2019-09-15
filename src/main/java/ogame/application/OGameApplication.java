@@ -9,6 +9,8 @@ import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.IOException;
+
 import static java.util.concurrent.TimeUnit.SECONDS;
 
 
@@ -20,7 +22,7 @@ public class OGameApplication {
     /** Logger */
     private static final Logger logger = LoggerFactory.getLogger(OGameApplication.class);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
 
         try {
             logger.info(Constants.Messages.OGAME_LOGO);
@@ -47,12 +49,14 @@ public class OGameApplication {
                 logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "SISTEMAS SIN AMENAZAS");
             }
 
-            driver.quit();
+            //driver.quit(); // Chrome quit
+            Runtime.getRuntime().exec("taskkill /F /IM geckodriver.exe /T"); // Firefox quit
 
         }catch (Exception e){
             logger.info(Constants.Messages.OGAME_DEBUG_PREFIX + "Se ha producido un error, se cierra el Driver");
             e.printStackTrace();
-            driver.quit();
+            //driver.quit(); //Chrome quit
+            Runtime.getRuntime().exec("taskkill /F /IM geckodriver.exe /T"); // Firefox quit
         }
 
     }

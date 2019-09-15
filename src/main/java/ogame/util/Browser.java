@@ -19,16 +19,13 @@ public class Browser {
 
 		ChromeOptions options = new ChromeOptions();
 		//options.addArguments("headless");
-
 		return new ChromeDriver(options);
 	}
 
 	public static WebDriver launchFirefox() {
 
 		System.setProperty("webdriver.gecko.driver","./drivers/geckodriver.exe");
-
 		return new FirefoxDriver();
-
 
 	}
 }
